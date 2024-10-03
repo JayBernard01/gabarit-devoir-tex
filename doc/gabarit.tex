@@ -1,0 +1,138 @@
+\documentclass{article}
+\usepackage{epsfig}
+\usepackage{amsmath}
+\usepackage{amsfonts, amssymb}
+\usepackage[french]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{tikz, tikz-qtree}
+\usepackage[framemethod=tikz]{mdframed}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{setspace}
+\usetikzlibrary{positioning}
+\usetikzlibrary{automata, backgrounds, snakes}
+
+%FILL THE FORM
+\newcommand{\cours}{[cours]}
+\newcommand{\titre}{[titre]}
+\newcommand{\auteur}{[auteur]}
+\newcommand{\remise}{[remise]}
+
+%SPECIAL SYMBOLS
+\newcommand{\CSP}{{\rm CSP}}
+\newcommand{\nin}{\not\in} % Not in set
+\newcommand{\DA}{{\bf DA }} % Variety DA
+\newcommand{\then}{\rightarrow} % Implication arrow
+\newcommand{\into}{\rightarrow} % Function arrow
+\newcommand{\xbar}{\overline{x}} % x with an bar on top
+\newcommand{\Xbar}{\overline{X}} % X with an bar on top
+\newcommand{\ybar}{\overline{y}} % y with an bar on top
+\newcommand{\abar}{\overline{a}} % a with an bar on top
+\newcommand{\EQN}{{\rm EQN}}
+\newcommand{\TEQN}{{\rm T\!-\!EQN}}
+\newcommand{\rl}{{\bf R}_1 \vee {\bf L}_1}
+\newcommand{\Z}{{\mathbb{Z}}}
+\newcommand{\back}{$\backslash$}
+\renewcommand{\choose}[2]{\genfrac{(}{)}{0pt}{}{#1}{#2}}
+\newcommand{\xor}{\oplus}
+\newcommand{\dmd}{% diamond
+{\qbezier(0,0)(0.5,0.5)(1,1) \qbezier(0,0)(-0.5,0.5)(-1,1) \qbezier(0,2)(0.5,1.5)(1,1) \qbezier(0,2)(-0.5,1.5)(-1,1)}}
+\newcommand{\dmdplus}{% diamond with + inscribed
+{\unitlength1.6mm \begin{picture}(2.2,2)(-1,0)\dmd \put(0,0.5){\line(0,1){1}} \put(-0.5,1){\line(1,0){1}}\end{picture}}}
+\newcommand{\dmdminus}{% diamond with - inscribed
+{\unitlength1.6mm \begin{picture}(2.2,2)(-1,0)\dmd \put(-0.5,1){\line(1,0){1}}\end{picture}}}
+\newcommand{\dmdplusminus}{% diamond with +/- inscribed
+{\unitlength1.6mm \begin{picture}(2.2,2)(-1,0)\dmd \put(0,0.8){\line(0,1){0.8}} \put(-0.4,1.2){\line(1,0){0.8}} \put(-0.4,0.6){\line(1,0){0.8}}\end{picture}}}
+
+%SHORTCUTS FOR MATHCAL
+\newcommand{\cH}{\mathcal{ H}}
+\newcommand{\cC}{\mathcal{ C}}
+\newcommand{\cJ}{\mathcal{ J}}
+\newcommand{\cM}{\mathcal{ M}}
+\newcommand{\cL}{\mathcal{ L}}
+\newcommand{\cR}{\mathcal{ R}}
+\newcommand{\cP}{\mathcal{ P}}
+\newcommand{\cQ}{\mathcal{ Q}}
+\newcommand{\Pol}{{\rm Pol}}
+\newcommand{\maps}{\longrightarrow}
+\newcommand{\cmaps}{\Longrightarrow}
+\newcommand{\vocab}{\tau}
+\newcommand{\uest}{\operatorname{{\bf U}}}
+\newcommand{\nest}{\operatorname{{\bf N}}}
+\newcommand{\mest}{\operatorname{{\bf M}}}
+\newcommand{\pest}{\operatorname{{\bf P}}}
+\newcommand{\test}{\operatorname{{\bf T}}}
+\newcommand{\sest}{\operatorname{{\bf S}}}
+\newcommand{\dest}{\operatorname{{\bf D}}}
+\newcommand{\cest}{\operatorname{{\bf C}}}
+\newcommand{\best}{\operatorname{{\bf B}}}
+\newcommand{\aest}{\operatorname{{\bf A}}}
+\newcommand{\kest}{\operatorname{{\bf K}}}
+\newcommand{\hest}{\operatorname{{\bf H}}}
+\newcommand{\gest}{\operatorname{{\bf G}}}
+\newcommand{\csp}{\operatorname{CSP}}
+\newcommand{\tcsp}{\operatorname{TCSP}}
+\newcommand{\tpol}{\operatorname{TPol}}
+\newcommand{\ext}{\operatorname{ext}}
+\newcommand{\set}[1]{\overline{#1}}
+\newcommand{\atomic}{\operatorname{{\mathcal{A}}}}
+\newcommand{\atomicsent}{\operatorname{{\mathcal{B}}}}
+\newcommand{\composed}{\circ}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\atom}{\alpha}
+\newcommand{\atomsent}{\beta}
+\newcommand{\sent}{\operatorname{sent}}
+\newcommand{\type}{\operatorname{type}}
+\newcommand{\pr}{\operatorname{pr}}
+\newcommand{\ide}{\operatorname{id}}
+\newcommand{\testfixed}{\operatorname{{\mathcal{TK}}}}
+\newcommand{\diagram}[1]{{#1}^*}
+\newcommand{\sub}{\subseteq}
+\newcommand{\arity}{\rho}
+\newcommand{\rsymbol}{\operatorname{r}}
+\newcommand{\wbar}{{\overline{w}}}
+\newcommand{\imply}[2]{{\bf (#1)$\rightarrow$(#2)}}
+\newcommand{\twoimply}[2]{{\bf (#1)$\leftrightarrow$(#2)}}
+\newcommand{\dset}{\operatorname{DS}}
+\newcommand{\one}{{\bf 1}}
+\newcommand{\origin}{\operatorname{{\mathcal{O}}}}
+\newcommand{\image}{\operatorname{{\mathcal{I}}}}
+\newcommand{\types}{\operatorname{{\mathcal{T}}}}
+\newcommand{\rel}{\operatorname{rel}}
+\newcommand{\maj}{\operatorname{MAJ}}
+\newcommand{\sat}{\operatorname{SAT}}
+\newcommand{\pointnolinear}{K_1}
+\newcommand{\mcd}{\operatorname{gcd}}
+\newcommand{\NP}{{\rm NP}}
+\newcommand{\coNP}{{\rm co-NP}}
+\newcommand{\bbbz}{{\mathbb{Z}}}
+\newcommand{\block}{\square}
+\newcommand{\ul}{\underline}
+
+\textheight
+9.6in
+\textwidth
+7.1in
+\oddsidemargin
+=
+-.25in
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\text{\titre}\\\text{\cours}}
+\fancyhead[R]{\text{\auteur}\\ \text{\remise}}
+\fancyfoot[C]{\thepage}
+\setlength{\headheight}{32pt}
+\setlength{\headsep}{15pt}
+\addtolength{\topmargin}{-48pt}
+\setstretch{1.15}
+
+%INCLUDE ALL QUESTIONS HERE
+\begin{document}
+	\large
+	\include{q1}
+
+	\newpage
+	\include{q2}
+\end{document}

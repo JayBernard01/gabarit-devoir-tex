@@ -1,0 +1,13 @@
+*.aux
+*.bbl
+*.blg
+*.lot
+*.out
+*.toc
+*.fls
+*.lof
+*.log
+*.zip
+doc/IFT2002-devoir1-24a.fdb_latexmk
+node_modules
+package-lock.json
