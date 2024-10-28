@@ -20,7 +20,7 @@ make i
 npx f
 ```
 
-# to cleanup all the generated files
+## to cleanup all the generated files
 
 ```bash
 make c
