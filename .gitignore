@@ -1,8 +1,7 @@
 doc/**
 !gabarit.pdf
 !gabarit.tex
-!q1.tex
-!q2.tex
+!q*.tex
 
 node_modules
 package-lock.json
