@@ -1,6 +1,6 @@
 docs/**
 !gabarit.pdf
 !gabarit.tex
-!q*.tex
+!*.tex
 
 node_modules
