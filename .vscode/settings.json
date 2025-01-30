@@ -42,9 +42,10 @@
   "emeraldwalk.runonsave": {
     "commands": [
       {
-        "match": "doc/**",
-        "cmd": "npx prettier --write doc"
+        "match": "docs/**",
+        "cmd": "yarn format"
       }
     ]
-  }
+  },
+  "cSpell.language": "en,fr"
 }
