@@ -4,11 +4,11 @@
 
 ### Motivation
 
-#### This template repository purpose is a minimalist template for any project involving documentation as an alternative to Word and Overleaf. It's adapted to school work, but it can be used for other purposes. It's meant to be run along your code base in the same IDE with all your favorite vscode extensions
+#### This template repository is for any project involving documentation as an alternative to Word and Overleaf. It's meant to be run along your code base in the same IDE with all your other Visual Studio Code extensions
 
-#### Features
+### Features
 
-#### This template includes format on save with Prettier and uses yarn for dependency management. The Visual Studio Code LaTeX extension includes all you need for your .pdf preview, build and code snippets
+#### This template includes format on save with Prettier and uses yarn for dependency management. The Visual Studio Code LaTeX extension includes all that you need for your .pdf preview, build and code snippets
 
 ## Installation
 
@@ -25,7 +25,7 @@
 
 - Install [Yarn](https://yarnpkg.com/getting-started/install)
 - Install .tex compiler -> follow the manual of `James-Yu.latex-workshop` installation instructions
-- Install prettier dependencies for .tex. See other scripts in the [package.json](package.json)
+- Install prettier dependencies for .tex. See other scripts in the [package.json](package.json) for more information
 
 ### Install dependencies
 
@@ -63,7 +63,7 @@ yarn
 
 ### Questions
 
-#### To add questions, you must add a file in `docs` with the `q*.tex`. You also need to add the page in the good order in the docs/gabarit.tex with `\newpage` followed underneath with `\include{q*}`
+#### To add questions, you must add a file in `docs` with the `q*.tex` pattern. You also need to add the page in the good order in the docs/gabarit.tex with `\newpage` followed underneath with `\include{q*}`
 
 ```tex
 %INCLUDE ALL QUESTIONS HERE
