@@ -1,6 +1,6 @@
 \documentclass{article}
 
-%ADD PACKAGES AND LIBRAIRIES HERE
+%ADD PACKAGES AND LIBRARIES HERE
 \usepackage{epsfig}
 \usepackage{amsmath}
 \usepackage{amsfonts, amssymb}
@@ -13,14 +13,23 @@
 \usepackage{geometry}
 \usepackage{hyperref}
 \usepackage{setspace}
+\usepackage{array}
+\usepackage{float}
+\usepackage{makecell}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{markdown}
 \usetikzlibrary{positioning}
 \usetikzlibrary{automata, backgrounds, snakes}
 
 %FILL THE FORM
 \newcommand{\cours}{[cours]}
+\newcommand{\codeCours}{[codeCours]}
 \newcommand{\titre}{[titre]}
 \newcommand{\auteur}{[auteur]}
 \newcommand{\remise}{[remise]}
+\newcommand{\remiseA}{[remiseA]}
+\newcommand{\NI}{[NI]}
 
 %SPECIAL SYMBOLS
 \newcommand{\CSP}{{\rm CSP}}
@@ -132,6 +141,9 @@
 
 %INCLUDE ALL QUESTIONS HERE
 \begin{document}
+	\include{titlepage}
+	\newpage
+
 	\large
 	\include{q1}
 

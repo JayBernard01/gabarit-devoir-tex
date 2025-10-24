@@ -1,6 +1,12 @@
 docs/**
-!gabarit.pdf
-!gabarit.tex
-!*.tex
+
+!docs/
+!docs/*.pdf
+!docs/*.tex
+
+!docs/img/
+!docs/img/*.pdf
+!docs/img/*.png
+!docs/img/*.svg
 
 node_modules
